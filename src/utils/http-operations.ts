@@ -1,5 +1,5 @@
 import request from "./request";
-import { warning, error } from "../hooks";
+import { warning, error } from "../utils";
 
 const handleError = (e: any) => {
      console.log(e);

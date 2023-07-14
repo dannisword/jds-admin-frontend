@@ -1,5 +1,5 @@
 import axios from "axios";
-import * as local from '../hooks/use-localStorage';
+import * as local from '../utils/use-localStorage';
 import router from '../router/index';
 
 const service = axios.create({
