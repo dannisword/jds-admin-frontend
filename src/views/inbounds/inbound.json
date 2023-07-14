@@ -1,0 +1,140 @@
+{
+     "advanced_search": [
+          {
+               "prop": "sysOrderNo",
+               "label": "入庫單號碼",
+               "type": "text",
+               "value": ""
+          },
+          {
+               "prop": "subCarrierId",
+               "label": "子棧板編號",
+               "type": "text",
+               "value": ""
+          },
+          {
+               "prop": "carrierId",
+               "label": "母棧板編號",
+               "type": "text",
+               "value": ""
+          }
+     ],
+     "master_columns": [
+          {
+               "prop": "seq",
+               "label": "項次",
+               "sortable": false,
+               "fixed": true,
+               "minWidth": 80,
+               "align": "left",
+               "queryable": false,
+               "value": ""
+          },
+          {
+               "prop": "sysOrderNo",
+               "label": "入庫單號碼",
+               "sortable": true,
+               "fixed": true,
+               "minWidth": 200,
+               "align": "left",
+               "queryable": true,
+               "value": ""
+          },
+          {
+               "prop": "createTime",
+               "label": "建立時間",
+               "sortable": true,
+               "fixed": false,
+               "minWidth": 180,
+               "align": "left",
+               "queryable": false,
+               "value": ""
+          },
+          {
+               "prop": "subCarrierId",
+               "label": "子棧板編號",
+               "sortable": true,
+               "fixed": false,
+               "minWidth": 160,
+               "align": "left",
+               "queryable": true,
+               "value": ""
+          },
+          {
+               "prop": "carrierId",
+               "label": "母棧板編號",
+               "sortable": true,
+               "fixed": false,
+               "minWidth": 160,
+               "align": "left",
+               "queryable": true,
+               "value": ""
+          },
+          {
+               "prop": "weight",
+               "label": "重量",
+               "sortable": true,
+               "fixed": false,
+               "minWidth": 120,
+               "align": "left",
+               "queryable": false,
+               "value": ""
+          },
+          {
+               "prop": "docStatusLabel",
+               "label": "單據狀態",
+               "sortable": false,
+               "fixed": false,
+               "minWidth": 120,
+               "align": "left",
+               "queryable": false,
+               "value": ""
+          },
+          {
+               "prop": "receiveSource",
+               "label": "命令來源",
+               "sortable": false,
+               "fixed": false,
+               "minWidth": 120,
+               "align": "left",
+               "queryable": false,
+               "value": ""
+          }
+     ],
+     "master_custom": {
+          "prop": "action",
+          "label": "動作",
+          "minWidth": 180,
+          "align": "center",
+          "fixed": "right",
+          "actions": [
+               {
+                    "name": "檢視明細",
+                    "type": "success",
+                    "event": "onView",
+                    "icon": "Document",
+                    "isShow": true
+               }
+          ]
+     },
+     "master_records": [
+          {
+               "seq": 1
+          },
+          {
+               "seq": 2
+          },
+          {
+               "seq": 2
+          },
+          {
+               "seq": 2
+          },
+          {
+               "seq": 5
+          },
+          {
+               "seq": 5
+          }
+     ]
+}
