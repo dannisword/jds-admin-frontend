@@ -60,16 +60,20 @@ const showPwd = () => {
     <el-container class="mainWrap" v-loading="page.container.isLoading">
         <div class="login-form-wrap">
             <div class="left-wrap">
+                <div class="logo">
+                    <img src="../assets/Jabil-logo-blue.svg" alt="">
+                </div>
                 <img src="../assets/login.png" alt="bg" />
             </div>
 
             <div class="right-wrap">
                 <el-form ref="loginForm" auto-complete="on" label-position="left" :model="data.user"
                     :rules="data.loginRules">
+                    <div class="logo logo-mobile">
+                        <img src="../assets/Jabil-logo-blue.svg" alt="">
+                    </div>
                     <div id="register_header">
-                        <div class="logo">
-                            <img src="../assets/Jabil-logo.svg" alt="">
-                        </div>
+                        <h3>Welcome</h3>
                     </div>
 
                     <el-form-item prop="account">
@@ -145,33 +149,46 @@ $cursor: #fff;
     align-items: center;
     width: 100%;
     height: 100vh;
-    background: $bg;
+
+    // background: $bg;
     h1 {
-        color: #fff;
+        color: #454545;
     }
 }
+
 .logo {
-    margin-bottom: 20px;
+    width: 130px;
+    margin-bottom: 0 auto 20px;
     display: flex;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+
     img {
         max-width: 100%;
         width: 110px;
     }
 }
+
+.logo-mobile {
+    display: none;
+}
+
 .right-wrap {
-        max-width: 33.3%;
-        flex: 33.3%;
-        padding: 5rem;
-    }
+    max-width: 33.3%;
+    flex: 33.3%;
+    padding: 5rem;
+}
 
 .left-wrap {
-     flex: 0 0 66.6666666667%;
-        max-width: 66.6666666667%;
-        background: #f9f9f9;
-        display: flex;
-        justify-content: center;
-        height: 100%;
-        align-items: center;
+    flex: 0 0 66.6666666667%;
+    max-width: 66.6666666667%;
+    background: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+
     img {
         max-width: 100%;
         height: auto;
@@ -184,8 +201,12 @@ $cursor: #fff;
         display: none !important;
     }
 
+    .logo-mobile {
+        display: block;
+    }
+
     .right-wrap {
-        background: $bg;
+        background: #f9f9f9;
         width: 100%;
         max-width: 100% !important;
         display: flex;
@@ -194,5 +215,4 @@ $cursor: #fff;
         height: 100%;
         padding: 0 !important;
     }
-}
-</style>
+}</style>
