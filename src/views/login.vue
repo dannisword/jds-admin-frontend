@@ -185,7 +185,7 @@ $cursor: #fff;
     }
 
     .right-wrap {
-        background: #f9f9f9;
+        background: $bg;
         width: 100%;
         max-width: 100% !important;
         display: flex;
