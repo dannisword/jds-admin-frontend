@@ -67,7 +67,9 @@ const showPwd = () => {
                 <el-form ref="loginForm" auto-complete="on" label-position="left" :model="data.user"
                     :rules="data.loginRules">
                     <div id="register_header">
-                        <h1>倉儲管理系統</h1>
+                        <div class="logo">
+                            <img src="../assets/Jabil-logo.svg" alt="">
+                        </div>
                     </div>
 
                     <el-form-item prop="account">
@@ -114,7 +116,7 @@ const showPwd = () => {
 /* 修复input 背景不协调 和光标变色 */
 /* Detail see https://github.com/PanJiaChen/vue-element-admin/pull/927 */
 
-$bg: #283443;
+$bg: #163e6a;
 $light_gray: #fff;
 $cursor: #fff;
 
@@ -143,8 +145,19 @@ $cursor: #fff;
     align-items: center;
     width: 100%;
     height: 100vh;
+    background: $bg;
+    h1 {
+        color: #fff;
+    }
 }
-
+.logo {
+    margin-bottom: 20px;
+    display: flex;
+    img {
+        max-width: 100%;
+        width: 110px;
+    }
+}
 .right-wrap {
         max-width: 33.3%;
         flex: 33.3%;
