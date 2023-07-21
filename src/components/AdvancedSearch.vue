@@ -27,7 +27,7 @@ const onConfirm = () => {
 </script>
 <template>
   <el-button v-popover="popoverRef" @click="state.visible = true">
-    進階查詢
+    Advanced
   </el-button>
 
   <el-popover

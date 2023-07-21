@@ -24,9 +24,27 @@ const resetParams = () => {
     subCarrierId: "",
   };
 };
+const _formError = {
+  projectName: "",
+  boardName: "",
+  stage: "",
+  startDate: "",
+};
+const _entity = {
+  id: 0,
+  projectName: 0,
+  boardName: "",
+  stage: "",
+  startDate: "",
+  gerberOutDate: "",
+  ecad: "",
+};
+const entity = reactive({ ..._entity });
+const formError = reactive({ ..._formError });
+const dialogs = reactive({} as any);
 // DataTable
-const master = {} as models.master_model;
-
+// let master = {} as models.master_model;
+let master = reactive({} as models.master_model);
 const state = reactive({
   params: resetParams(),
   nowDate: ref(),
@@ -38,11 +56,16 @@ const state = reactive({
 
 //#region  methods
 onMounted(() => {
+  dialogs.title = "New Assign PCB Designer";
+  dialogs.visible = false;
+
   master.columns = jsonData.master_columns;
-  master.custom = jsonData.master_columns;
+  master.custom = jsonData.master_custom;
+  master.records = jsonData.master_records;
+
   state.fields = jsonData.advanced_search;
   state.nowDate = [base.addDay(-30), base.addDay(0)];
-  onLoad();
+  // onLoad();
 });
 
 const onLoad = () => {
@@ -78,6 +101,20 @@ const onConfirm = (pairs: any) => {
   base.pairToParams(state.params, pairs);
   onLoad();
 };
+
+const onModalClose = (val: any) => {
+  dialogs.visible = false;
+};
+
+const onTableAction = (event: string, val: any) => {
+  Object.assign(entity, val);
+  dialogs.visible = true;
+};
+const handleValid = (name: string = "") => {
+  let isValid = true;
+  Object.assign(formError, _formError);
+  return isValid;
+};
 //#endregion
 </script>
 
@@ -88,10 +125,10 @@ const onConfirm = (pairs: any) => {
   >
     <el-main>
       <!-- 搜尋條件-->
-      <el-form label-width="100px" :model="state.params" :inline="false">
+      <el-form label-width="120px" :model="state.params" :inline="false">
         <el-row>
           <el-col :xs="24" :sm="12" :md="12" :lg="8" :xl="8">
-            <el-form-item :label="$t('建立日期')">
+            <el-form-item :label="$t('Create At')">
               <el-date-picker
                 v-model="state.nowDate"
                 type="daterange"
@@ -103,16 +140,16 @@ const onConfirm = (pairs: any) => {
             </el-form-item>
           </el-col>
           <el-col :xs="24" :sm="12" :md="12" :lg="8" :xl="8">
-            <el-form-item label="單據編號">
+            <el-form-item label="Project Name">
               <el-input v-model="state.params.sysOrderNo"></el-input>
             </el-form-item>
           </el-col>
           <el-col>
             <el-form-item>
               <el-button type="primary" mb-2 @click="onLoad()">
-                查詢
+                Search
               </el-button>
-              <el-button mb-2 @click="onClear()"> 清除 </el-button>
+              <el-button mb-2 @click="onClear()"> Clear </el-button>
               <!-- 進階查詢 -->
               <AdvancedSearch
                 :fields="state.fields"
@@ -130,8 +167,83 @@ const onConfirm = (pairs: any) => {
         :selection="master.selection"
         :pageable="state.pageable"
         :is-actions="true"
+        @onAction="onTableAction"
       >
       </DataTable>
+
+      <!-- 開窗 -->
+      <Dialog
+        :optional="dialogs"
+        :title="dialogs.title"
+        :visible="dialogs.visible"
+        :width="'30%'"
+        @on-before-close="onModalClose"
+      >
+        <el-form
+          ref="refForm"
+          label-width="auto"
+          auto-complete="on"
+          :inline="false"
+        >
+          <el-row>
+            <el-col :span="24">
+              <el-form-item
+                label="Project Name"
+                :rules="[{ required: true, trigger: 'blur' }]"
+                :error="formError.projectName"
+              >
+                <el-input
+                  v-model="entity.projectName"
+                  @blur="handleValid('code')"
+                ></el-input>
+              </el-form-item>
+            </el-col>
+            <el-col :span="24">
+              <el-form-item
+                label="Border Name"
+                :rules="[{ required: true, trigger: 'blur' }]"
+                :error="formError.boardName"
+              >
+                <el-input
+                  v-model="entity.boardName"
+                  @blur="handleValid('name')"
+                ></el-input>
+              </el-form-item>
+            </el-col>
+
+            <el-col :span="24">
+              <el-form-item
+                label="Stage"
+                :rules="[{ required: true, trigger: 'blur' }]"
+                :error="formError.stage"
+              >
+                <el-input
+                  v-model="entity.stage"
+                  @blur="handleValid('stage')"
+                ></el-input>
+              </el-form-item>
+            </el-col>
+
+            <el-col :span="24">
+              <el-form-item label="Start Date">
+                <el-date-picker v-model="entity.startDate"> </el-date-picker>
+              </el-form-item>
+            </el-col>
+
+            <el-col :span="24">
+              <el-form-item label="Gerber Out Date">
+                <el-date-picker v-model="entity.startDate"> </el-date-picker>
+              </el-form-item>
+            </el-col>
+
+            <el-col :span="24">
+              <el-form-item label="ECAD">
+                <el-input v-model="entity.stage"></el-input>
+              </el-form-item>
+            </el-col>
+          </el-row>
+        </el-form>
+      </Dialog>
     </el-main>
   </el-container>
 </template>

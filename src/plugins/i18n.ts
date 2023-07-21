@@ -20,8 +20,8 @@ type MessageSchema = typeof zhTw
 
 const i18n = createI18n<[MessageSchema], LangType.ZH | LangType.EN>({
      legacy: false,
-     locale: LangType.ZH,
-     fallbackLocale: LangType.ZH,
+     locale: LangType.EN,
+     fallbackLocale: LangType.EN,
      globalInjection: true,
      messages: messages
 })

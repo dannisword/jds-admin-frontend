@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { reactive, toRefs, watch } from "vue";
-// import sidebarlogo from "../assets/logo-1.svg";
-import sidebarlogo from "../assets/logo.jpg";
+import sidebarlogo from "../assets/Jabil-logo-blue.svg";
+// import sidebarlogo from "../assets/logo.jpg";
 import { useI18n } from "vue-i18n";
 import { storeToRefs } from "pinia";
 
@@ -68,33 +68,77 @@ const handleClose = (key: string, keyPath: string[]) => {
       <el-sub-menu index="1">
         <template #title>
           <el-icon><location /></el-icon>
-          <span>Navigator One</span>
+          <span>Admin</span>
         </template>
-        <el-menu-item-group>
-          <template #title><span>Group One</span></template>
-          <el-menu-item index="1-1">item one</el-menu-item>
-          <el-menu-item index="1-2">item two</el-menu-item>
-        </el-menu-item-group>
-        <el-menu-item-group title="Group Two">
-          <el-menu-item index="1-3">item three</el-menu-item>
-        </el-menu-item-group>
-        <el-sub-menu index="1-4">
-          <template #title><span>item four</span></template>
-          <el-menu-item index="1-4-1">item one</el-menu-item>
-        </el-sub-menu>
+        <el-menu-item index="1-1">
+          <template #title>Dashboard</template>
+        </el-menu-item>
       </el-sub-menu>
-      <el-menu-item index="2">
-        <el-icon><icon-menu /></el-icon>
-        <template #title>Navigator Two</template>
-      </el-menu-item>
-      <el-menu-item index="3" disabled>
-        <el-icon><document /></el-icon>
-        <template #title>Navigator Three</template>
-      </el-menu-item>
-      <el-menu-item index="4">
-        <el-icon><setting /></el-icon>
-        <template #title>Navigator Four</template>
-      </el-menu-item>
+
+      <el-sub-menu index="2">
+        <template #title>
+          <el-icon><location /></el-icon>
+          <span>PCB Design</span>
+        </template>
+        <el-menu-item index="2-1">
+          <template #title>ECAD Resource Request</template>
+        </el-menu-item>
+        <el-menu-item index="2-2">
+          <template #title>In Process</template>
+        </el-menu-item>
+        <el-menu-item index="2-3">
+          <template #title>History</template>
+        </el-menu-item>
+      </el-sub-menu>
+
+      <el-sub-menu index="3">
+        <template #title>
+          <el-icon><location /></el-icon>
+          <span>PCB Design Checklist</span>
+        </template>
+        <el-menu-item index="3-1">
+          <template #title>Checklist From</template>
+        </el-menu-item>
+        <el-menu-item index="3-2">
+          <template #title>In Process</template>
+        </el-menu-item>
+        <el-menu-item index="3-3">
+          <template #title>History</template>
+        </el-menu-item>
+      </el-sub-menu>
+
+      <el-sub-menu index="4">
+        <template #title>
+          <el-icon><location /></el-icon>
+          <span> Gerber Out Approve</span>
+        </template>
+        <el-menu-item index="4-1">
+          <template #title>Create Approve From</template>
+        </el-menu-item>
+        <el-menu-item index="4-2">
+          <template #title>In Process</template>
+        </el-menu-item>
+        <el-menu-item index="4-3">
+          <template #title>History</template>
+        </el-menu-item>
+      </el-sub-menu>
+
+      <el-sub-menu index="5">
+        <template #title>
+          <el-icon><location /></el-icon>
+          <span> System Management</span>
+        </template>
+        <el-menu-item index="5-1">
+          <template #title>Projct Team Roster</template>
+        </el-menu-item>
+        <el-menu-item index="5-2">
+          <template #title>Function Team Roster</template>
+        </el-menu-item>
+        <el-menu-item index="5-3">
+          <template #title>PCB Design Checklist</template>
+        </el-menu-item>
+      </el-sub-menu>
+     
     </el-menu>
   </el-scrollbar>
 </template>

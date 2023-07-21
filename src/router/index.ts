@@ -13,13 +13,13 @@ export const constantRoutes: Array<RouteRecordRaw> = [
         path: "dashboard",
         name: "Dashboard",
         component: () => import('../views/dashboard.vue'),
-        meta: { title: "首頁", affix: false },
+        meta: { title: "Dashboard", affix: false },
       },
       {
         path: "inbound/:id",
         name: "inbound",
         component: () => import('../views/inbounds/inbound.vue'),
-        meta: { title: "入庫查詢",  affix: true },
+        meta: { title: "Assign PCB Designer",  affix: true },
       },
       {
         path: "inboundDetail",
