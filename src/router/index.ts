@@ -27,6 +27,12 @@ export const constantRoutes: Array<RouteRecordRaw> = [
         component: () => import('../views/inbounds/inbound-detail.vue'),
         meta: { title: "入庫明細",  affix: true },
       },
+      {
+        path: "pcb-detail",
+        name: "pcb-detail",
+        component: () => import('../views/inbounds/pcb-detail.vue'),
+        meta: { title: "Project Add",  affix: true },
+      },
     ],
   },
   {

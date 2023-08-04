@@ -37,13 +37,13 @@ export const useApp = defineStore('useApp', {
                     resolve(false);
                });
           },
-          demo(data: any){
+          demo(data: any) {
                return new Promise((resolve, reject) => {
-           
+
                     this.user.userName = "admin";
                     resolve(true);
                });
-            
+
           },
           /**
            * 登出
