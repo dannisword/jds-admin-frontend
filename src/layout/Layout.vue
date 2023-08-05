@@ -93,7 +93,7 @@ const classObj = computed(() => {
     height: 40px;
     text-align: center;
     padding: 10px;
-    background: #ebebeb;
+    background: whitesmoke;
     font-size: 10px;
 }
 

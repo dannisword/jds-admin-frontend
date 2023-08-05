@@ -196,11 +196,11 @@ ul.el-menu.el-menu--vertical {
 }
 
 .subtitle {
-    color: #163e6a;
+    color: darkblue;
     font-weight: 900;
 }
 .menu-item.el-menu-item.is-active {
-    color: #b46448 !important;
+    color: brown !important;
     font-weight: 600;
     text-decoration: underline;
 }
