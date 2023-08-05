@@ -52,7 +52,7 @@ const onLogout = () => {
 
 <style lang="scss" scoped>
 .navbar {
-  height: var(--nav-bar-height);
+//   height: var(--nav-bar-height);
   overflow: hidden;
   position: relative;
   background: var(--nav-bar-background);
