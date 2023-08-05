@@ -19,13 +19,14 @@ const onLogout = () => {
 </script>
 
 <template>
+    <el-container>
   <div class="navbar">
     <!-- logo -->
-    <div @click="toggleClick()">
+    <!-- <div @click="toggleClick()">
       <el-icon class="logo-style">
         <Fold />
       </el-icon>
-    </div>
+    </div> -->
 
     <!-- drop down-->
     <div class="right-menu">
@@ -46,6 +47,7 @@ const onLogout = () => {
       </el-dropdown>
     </div>
   </div>
+</el-container>
 </template>
 
 <style lang="scss" scoped>
@@ -58,9 +60,10 @@ const onLogout = () => {
   z-index: 1;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: end;
   align-items: center;
-  padding: 1rem;
+  padding: 10px;
+  flex: auto;
 }
 
 .right-menu {

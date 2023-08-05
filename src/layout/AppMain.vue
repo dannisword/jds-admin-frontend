@@ -25,12 +25,14 @@ watch(
 
 <template>
   <div class="app-main">
+    <el-container>
     <router-view v-slot="{ Component }">
       <!-- no transition -->
       <keep-alive :include="cachedViews">
         <component :is="Component" :key="key" />
       </keep-alive>
     </router-view>
+    </el-container>
   </div>
 </template>
 
