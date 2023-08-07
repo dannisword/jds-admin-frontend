@@ -29,23 +29,7 @@ const onLogout = () => {
     </div> -->
 
     <!-- drop down-->
-    <div class="right-menu">
-      <el-dropdown trigger="click" size="medium">
-        <div class="user-icon">
-          {{ app.user.userName }}
-          <el-icon><User /></el-icon>
-        </div>
-        <template #dropdown>
-          <el-dropdown-menu>
-            <el-dropdown-item>首頁</el-dropdown-item>
-            <el-dropdown-item>修改密码</el-dropdown-item>
-            <el-dropdown-item divided @click="onLogout()">
-              登出
-            </el-dropdown-item>
-          </el-dropdown-menu>
-        </template>
-      </el-dropdown>
-    </div>
+   
   </div>
 </el-container>
 </template>

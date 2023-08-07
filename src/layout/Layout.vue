@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import Navbar from "./Navbar.vue";
+import * as store from "../store";
 import Sidebar from "./Sidebar.vue";
 import AppMain from "./AppMain.vue";
 import TagsView from "./TagsView.vue";
@@ -7,8 +8,10 @@ import { resizeHandler } from "../hooks/resize-handle";
 import { useApp } from "../store/useApp";
 import { storeToRefs } from "pinia";
 import sidebarlogo from "../assets/Jabil-One-w.svg";
+import { routeHandle } from "../hooks/route-handle";
 resizeHandler();
 
+const { navigation } = routeHandle();
 const app = useApp();
 const { collapse, user } = storeToRefs(app);
 
@@ -21,6 +24,11 @@ const classObj = computed(() => {
         closeSidebar: collapse.value,
     };
 });
+
+const onLogout = () => {
+    store.useApp().logout();
+    navigation("/login");
+};
 </script>
 
 <template>
@@ -29,20 +37,37 @@ const classObj = computed(() => {
         <div :class="classObj" class="app-wrapper">
             <!-- sider -->
             <el-header class="header">
-                <router-link class="sidebar-logo-link" to="/">
-                    <img class="logo" :src="sidebarlogo" />
-            </router-link>
-            ECAD System
-            </el-header>
+                        <router-link class="left-menu" to="/">
+                            <img class="logo" :src="sidebarlogo" />
+                            <span>ECAD System</span>
+                        </router-link>
+                <div class="right-menu">
+          <el-dropdown trigger="click" size="medium">
+            <div class="user-icon">
+              {{ app.user.userName }}
+              <el-icon><User /></el-icon>
+            </div>
+            <template #dropdown>
+              <el-dropdown-menu>
+                <el-dropdown-item>首頁</el-dropdown-item>
+                <el-dropdown-item>修改密码</el-dropdown-item>
+                <el-dropdown-item divided @click="onLogout()">
+                  登出
+                </el-dropdown-item>
+              </el-dropdown-menu>
+            </template>
+          </el-dropdown>
+        </div>
+                </el-header>
             <el-container>
                 <div class="aside">
                     <Sidebar :collapse="collapse" class="sidebar-container" />
                 </div>
                 <div class="main">
                     <!-- nav-->
-                    <div :class="{ 'fixed-header': true }">
+                    <!-- <div :class="{ 'fixed-header': true }">
                         <Navbar @on-toggle="onToggle" />
-                    </div>
+                    </div> -->
                     <TagsView></TagsView>
                     <!-- AppMain -->
                     <AppMain />
@@ -83,6 +108,31 @@ const classObj = computed(() => {
     color: #ffff;
     padding: 13px;
     font-weight: 500;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left-menu {
+    display: flex;
+    flex-flow: row;
+    text-decoration: none;
+    span {
+        margin-left: 10px;
+    }
+}
+.right-menu {
+    display: flex;
+    align-items: center;
+    .el-dropdown {
+    display: inline-flex;
+    position: relative;
+    color: var(--el-color-white);
+    font-size: var(--el-font-size-base);
+    line-height: 1;
+    vertical-align: top;
+}
 }
 
 .logo {
