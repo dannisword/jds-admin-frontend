@@ -107,6 +107,48 @@ const handleValid = (name: string = "") => {
                     </td>
                 </tr>
                 <tr>
+                    <td rowspan ="2">SL</td>
+                    <td>
+                        Stackup
+                    </td>
+                    <td colspan="2">
+                         <el-form-item>
+                                    <el-input v-model="entity.boardName" @blur="handleValid('name')"></el-input>
+                                </el-form-item>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Routing Rule
+                    </td>
+                    <td colspan="2">
+                         <el-form-item>
+                                    <el-input v-model="entity.boardName" @blur="handleValid('name')"></el-input>
+                                </el-form-item>
+                    </td>
+                </tr>
+                <tr>
+                    <td rowspan ="2">ME</td>
+                    <td>
+                        DXF
+                    </td>
+                    <td colspan="2">
+                         <el-form-item>
+                                    <el-input v-model="entity.boardName" @blur="handleValid('name')"></el-input>
+                                </el-form-item>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                       EMN
+                    </td>
+                    <td colspan="2">
+                         <el-form-item>
+                                    <el-input v-model="entity.boardName" @blur="handleValid('name')"></el-input>
+                                </el-form-item>
+                    </td>
+                </tr>
+                <tr>
                     <td colspan="4" style="text-align: center">
                         <el-form-item>
                             <el-button type="primary">Save</el-button>
